@@ -1,9 +1,10 @@
 import React from 'react';
+import Navber from '../components/Navber';
 
 const Main = () => {
   return (
     <div>
-      <h1>hhh</h1>
+      <Navber></Navber>
     </div>
   );
 };
