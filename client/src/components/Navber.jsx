@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../assets/images/logo.png'
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navber = () => {
+  const {user} =useContext(AuthContext)
   return (
     <>
       <div className='navbar bg-base-100 shadow-sm container px-4 mx-auto'>
@@ -17,9 +19,12 @@ const Navber = () => {
             <div>Home</div>
           </li>
 
-          <li>
-            <div>Login</div>
-          </li>
+    {
+      !user && 
+      <li>
+      <div>Login</div>
+    </li>
+    }
         </ul>
 
         <div className='dropdown dropdown-end z-50'>
