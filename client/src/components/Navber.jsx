@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import logo from '../assets/images/logo.png'
 import { AuthContext } from '../provider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const Navber = () => {
   const { user } = useContext(AuthContext)
@@ -22,7 +23,7 @@ const Navber = () => {
             {
               !user &&
               <li>
-                <div>Login</div>
+                <Link to='/login'>Login</Link>
               </li>
             }
           </ul>
