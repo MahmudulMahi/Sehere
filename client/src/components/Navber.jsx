@@ -9,15 +9,15 @@ const Navber = () => {
     <>
       <div className='navbar bg-base-100 shadow-sm container px-4 mx-auto'>
         <div className='flex-1'>
-          <div className='flex gap-2 items-center'>
+          <Link to='/' className='flex gap-2 items-center'>
             <img className='w-auto h-7' src={logo} alt='' />
             <span className='font-bold'>SoloSphere</span>
-          </div>
+          </Link>
         </div>
         <div className='flex-none'>
           <ul className='menu menu-horizontal px-1'>
             <li>
-              <div>Home</div>
+              <Link to='/'>Home</Link>
             </li>
 
             {
@@ -35,11 +35,11 @@ const Navber = () => {
                 role='button'
                 className='btn btn-ghost btn-circle avatar'
               >
-                <div className='w-10 rounded-full' title=''>
+                <div  className='w-10 rounded-full' title={user?.displayName}>
                   <img
                     referrerPolicy='no-referrer'
                     alt='User Profile Photo'
-                    src=''
+                    src={user?.photoURL}
                   />
                 </div>
               </div>
