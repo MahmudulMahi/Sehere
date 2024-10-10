@@ -1,4 +1,3 @@
-import React from 'react';
 import logo from '../assets/images/logo.png'
 const Footer = () => {
   return (
@@ -115,7 +114,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

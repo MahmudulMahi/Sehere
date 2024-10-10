@@ -10,8 +10,8 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth'
-// import { app } from '../firebase/firebase.config'
 import { app } from '../firebase/firebase.config'
+import axios from 'axios'
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app)
@@ -38,6 +38,10 @@ const AuthProvider = ({ children }) => {
 
   const logOut = async () => {
     setLoading(true)
+    const { data } = await axios(`${import.meta.env.VITE_API_URL}/logout`, {
+      withCredentials: true,
+    })
+    console.log(data)
     return signOut(auth)
   }
 
