@@ -18,7 +18,6 @@ const MyPostedJobs = () => {
     const { data } = await axiosSecure(`/jobs/${user?.email}`)
     setJobs(data)
   }
-
   const handleDelete = async id => {
     try {
       const { data } = await axiosSecure.delete(`/job/${id}`)
