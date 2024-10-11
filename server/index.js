@@ -132,7 +132,17 @@ async function run() {
       res.send(result)
     })
 
-
+    // get all jobs posted by a specific user
+    app.get('/jobs/:email', verifyToken, async (req, res) => {
+      const tokenEmail = req.user.email
+      const email = req.params.email
+      if (tokenEmail !== email) {
+        return res.status(403).send({ message: 'forbidden access' })
+      }
+      const query = { 'buyer.email': email }
+      const result = await jobsCollection.find(query).toArray()
+      res.send(result)
+    })
 
     // delete a job data from db
     app.delete('/job/:id', async (req, res) => {
