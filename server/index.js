@@ -152,20 +152,7 @@ async function run() {
       res.send(result)
     })
 
-    // update a job in db
-    app.put('/job/:id', verifyToken, async (req, res) => {
-      const id = req.params.id
-      const jobData = req.body
-      const query = { _id: new ObjectId(id) }
-      const options = { upsert: true }
-      const updateDoc = {
-        $set: {
-          ...jobData,
-        },
-      }
-      const result = await jobsCollection.updateOne(query, updateDoc, options)
-      res.send(result)
-    })
+
 
     // get all bids for a user by email from db
     app.get('/my-bids/:email', verifyToken, async (req, res) => {
