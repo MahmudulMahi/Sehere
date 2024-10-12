@@ -168,7 +168,6 @@ async function run() {
     })
 
 
-
     // Update Bid status
     app.patch('/bid/:id', async (req, res) => {
       const id = req.params.id
