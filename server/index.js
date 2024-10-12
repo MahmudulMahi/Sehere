@@ -167,21 +167,7 @@ async function run() {
       res.send(result)
     })
 
-    // get all bids for a user by email from db
-    app.get('/my-bids/:email', verifyToken, async (req, res) => {
-      const email = req.params.email
-      const query = { email }
-      const result = await bidsCollection.find(query).toArray()
-      res.send(result)
-    })
 
-    //Get all bid requests from db for job owner
-    app.get('/bid-requests/:email', verifyToken, async (req, res) => {
-      const email = req.params.email
-      const query = { 'buyer.email': email }
-      const result = await bidsCollection.find(query).toArray()
-      res.send(result)
-    })
 
     // Update Bid status
     app.patch('/bid/:id', async (req, res) => {
